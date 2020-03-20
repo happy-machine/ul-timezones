@@ -1,0 +1,62 @@
+.App-logo {
+  height: 8vmin;
+  pointer-events: none;
+  margin-left: 5%;
+  align-self: center;
+  padding-top: 10px;
+}
+
+.App-header {
+  padding-top: 30px;
+  font-size: calc(10px + 2vmin);
+  grid-template-columns: 78% 11% 0%;
+  display: grid;
+  color: white;
+  #logout {
+    font-family: "system-ui";
+    font-size: 0.9em;
+    font-weight: 200;
+    color: #888;
+    align-self: center;
+    &:hover {
+      color: #aaa;
+      cursor: grab;
+    }
+  }
+  .header-clock {
+    background-color: white;
+    border-radius: 50%;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .header-clock {
+    height: 5vh;
+    width: 5vh;
+  }
+  .App-header {
+    grid-template-columns: 65% 18% 10%;
+  }
+}
+
+#logged-out {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.5;
+  background-color: black;
+  pointer-events: none;
+}
+
+#search-input {
+  max-width: 500px;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  width: 40%;
+  background-color: black;
+  &:hover {
+    border-bottom-width: 2px;
+  }
+}

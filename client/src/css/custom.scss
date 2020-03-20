@@ -1,0 +1,53 @@
+$body-bg: #000;
+@import "/dist/css/bootstrap.min.css";
+
+input {
+  font-size: 2em;
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: white;
+  color: white;
+  &:focus {
+    border-color: red;
+  }
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-size: 1em;
+  font-weight: 100;
+  text-align: center;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  font-size: 1em;
+  text-align: center;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  font-size: 1em;
+  text-align: center;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  font-size: 1em;
+  text-align: center;
+}
+
+@media screen and (max-width: 780px) {
+  ::-webkit-input-placeholder {
+    font-size: 4vw;
+  }
+  ::-moz-placeholder {
+    font-size: 4vw;
+  }
+  :-ms-input-placeholder {
+    font-size: 4vw;
+  }
+  :-moz-placeholder {
+    font-size: 4vw;
+  }
+  input {
+    max-width: 40%;
+  }
+}

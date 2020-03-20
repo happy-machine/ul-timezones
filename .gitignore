@@ -1,0 +1,26 @@
+# dependencies
+API/node_modules
+client/node_modules
+
+# testing
+API/coverage
+API/.nyc_output
+
+# production
+/build
+API/dist
+
+# misc
+.DS_Store
+API/.DS_Store
+client/.DS_Store
+API/.env
+client/.env
+API/.prettierrc
+client/.prettierrc
+
+
+API/npm-debug.log*
+API/yarn-debug.log*
+API/yarn-error.log*
+client/npm-debug.log*

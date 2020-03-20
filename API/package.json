@@ -1,0 +1,55 @@
+{
+  "name": "timezones-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/app.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "clean": "rm -rf build && mkdir build",
+    "build": "tsc",
+    "watch": "./node_modules/nodemon/bin/nodemon.js -e ts  --exec \"npm run dev\"",
+    "build-ci": "./node_modules/typescript/bin/tsc",
+    "migrate": "knex migrate:latest --knexfile=./CLI/knexfile.js",
+    "rollback": "knex migrate:rollback --knexfile=./CLI/knexfile.js",
+    "test-migrate": "knex migrate:latest  --env test --knexfile=./CLI/knexfile.js",
+    "test-rollback": "knex migrate:rollback --env test --knexfile=./CLI/knexfile.js",
+    "start": "node dist/app.js",
+    "start-debug": "node --inspect-brk dist/app.js",
+    "dev": "npm run build && npm run start",
+    "test": "npm run build && nyc mocha $(find dist -name '*_spec.js') --timeout 6000 --exit && nyc report --reporter=html",
+    "test-one": "mocha $(find dist -name '*_spec.js')",
+    "test-ci": "npm run build-ci && nyc mocha $(find dist -name '*_spec.js') --timeout 6000 --exit  && nyc report --reporter=html"
+  },
+  "dependencies": {
+    "@types/node": "^13.9.2",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "fast-xml-parser": "^3.16.0",
+    "he": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.12",
+    "mysql": "^2.18.1",
+    "passport": "^0.4.1",
+    "passport-http": "^0.3.0",
+    "passport-http-bearer": "^1.0.1",
+    "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/knex": "^0.16.1",
+    "@types/mocha": "^7.0.2",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "nodemon": "^2.0.2",
+    "nyc": "^15.0.0",
+    "prettier": "^1.19.1"
+  },
+  "engines": {
+    "node": "12.16.1"
+  }
+}
