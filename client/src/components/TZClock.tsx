@@ -10,6 +10,9 @@ type ITZClockProps = {
 
 function TZClock({ utcOffset, className }: ITZClockProps) {
   const [time, setTime] = useState(new Date());
+  const [timezone, setTimezone] = useState(
+    Intl.DateTimeFormat().resolvedOptions().timeZone
+  );
   const { height, width } = useWindowDimensions();
 
   // Theres a better way to do this, but not in the time i have
@@ -21,13 +24,17 @@ function TZClock({ utcOffset, className }: ITZClockProps) {
     }, 1000);
   });
   return (
-    <Clock
-      className={className}
-      renderMinuteMarks={false}
-      renderHourMarks={false}
-      value={time}
-      size={size}
-    />
+    <div
+      title={`${time.getHours()}:${time.getMinutes()}:${time.getSeconds()} ${timezone}`}
+    >
+      <Clock
+        className={className}
+        renderMinuteMarks={false}
+        renderHourMarks={false}
+        value={time}
+        size={size}
+      />
+    </div>
   );
 }
 
