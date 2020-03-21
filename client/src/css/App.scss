@@ -61,6 +61,11 @@ code {
   text-align: center;
 }
 
+#container {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (max-width: 780px) {
   .header-clock {
     height: 5vh;

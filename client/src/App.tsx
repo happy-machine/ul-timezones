@@ -38,14 +38,17 @@ function App() {
           timezone={timezone.timezone}
         />
       </header>
+
       <div id="status">{status}</div>
-      <Search
-        setStatus={setStatus}
-        searchString={searchString}
-        setSearchString={setSearchString}
-        setTimezone={setTimezone}
-      />
-      {!LoggedIn && <Login setLoggedIn={setLoggedIn} setStatus={setStatus} />}
+      <div id="container">
+        <Search
+          setStatus={setStatus}
+          searchString={searchString}
+          setSearchString={setSearchString}
+          setTimezone={setTimezone}
+        />
+        {!LoggedIn && <Login setLoggedIn={setLoggedIn} setStatus={setStatus} />}
+      </div>
     </div>
   );
 }
