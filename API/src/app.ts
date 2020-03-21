@@ -11,8 +11,7 @@ app.post('/login', pass.authenticate('basic', { session: true }), function(
   res
 ) {
   if (req.user) {
-    const tokenData = req.user;
-    delete tokenData.password;
+    const { password, ...tokenData } = req.user;
     res.send({
       status: 'success',
       jwt: jwt.sign(tokenData, JWT_SECRET, {

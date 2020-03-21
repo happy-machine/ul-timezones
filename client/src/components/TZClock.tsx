@@ -28,11 +28,12 @@ function TZClock({
   const calcSize = Math.round((height * width) / 25000) + 40;
 
   useEffect(() => {
-    setTimeout(() => {
+    const id = setInterval(() => {
       setTime(
         new Date(convertCurrentToTimezone(hourOffset || 0, minuteOffset || 0))
       );
     }, 1000);
+    return () => clearInterval(id);
   }, [hourOffset, minuteOffset]);
 
   return (

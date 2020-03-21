@@ -15,7 +15,6 @@
     "test-migrate": "knex migrate:latest  --env test --knexfile=./CLI/knexfile.js",
     "test-rollback": "knex migrate:rollback --env test --knexfile=./CLI/knexfile.js",
     "start": "node dist/app.js",
-    "start-debug": "node --inspect-brk dist/app.js",
     "dev": "npm run build && npm run start",
     "test": "npm run build && nyc mocha $(find dist -name '*_spec.js') --timeout 6000 --exit && nyc report --reporter=html",
     "test-one": "mocha $(find dist -name '*_spec.js')",
