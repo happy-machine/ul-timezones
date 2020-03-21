@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { expect, should, assert } from 'chai';
+import { expect } from 'chai';
 import * as db from '../service/db-service';
 import { knex_test } from '../config/knex-config';
 import { userLogin, userVerify } from './auth';
@@ -49,4 +49,4 @@ describe('Auth', () => {
 
 // query.debug();
 // console.log('query: ', query.toSQL());
-// console.log('query2: ', query.toSQL().toNative());
+// console.log('query native: ', query.toSQL().toNative());

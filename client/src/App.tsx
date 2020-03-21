@@ -1,25 +1,51 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import logo from "./logo.svg";
+import { cookieExists } from "./lib/cookie";
+import { logout } from "./lib/auth";
 import TZClock from "./components/TZClock";
 import Login from "./components/Login";
-import ScaleLoader from "react-spinners/ClipLoader";
+import Search from "./components/Search";
 import "./css/App.scss";
 import "./css/components.scss";
 
 function App() {
-  const [LoggedIn, setLoggedIn] = useState(true);
-  const [loading, setLoading] = useState(false);
+  const handleLogout = useCallback(async () => {
+    logout();
+    setLoggedIn(false);
+  }, []);
+
+  const [LoggedIn, setLoggedIn] = useState(cookieExists());
+  const [status, setStatus] = useState("");
+  const [timezone, setTimezone] = useState({
+    hourOffset: 0,
+    minuteOffset: 0,
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+  });
+  const [searchString, setSearchString] = useState("");
+
   return (
     <div className="App">
       {!LoggedIn && <div id="logged-out" />}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <div id="logout">Logout</div>
-        <TZClock className="header-clock" utcOffset={5} />
+        <div id="logout" onClick={handleLogout}>
+          Logout
+        </div>
+        <TZClock
+          className="header-clock"
+          hourOffset={timezone.hourOffset}
+          minuteOffset={timezone.minuteOffset}
+          timezone={timezone.timezone}
+        />
       </header>
-      <input id="search-input" placeholder="Search for a timezone..." />
-      <ScaleLoader size={150} color={"white"} loading={loading} />
-      {!LoggedIn && <Login setLoggedIn={setLoggedIn} />}
+      <div id="status">{status}</div>
+      <Search
+        setStatus={setStatus}
+        searchString={searchString}
+        setSearchString={setSearchString}
+        setTimezone={setTimezone}
+      />
+      {!LoggedIn && <Login setLoggedIn={setLoggedIn} setStatus={setStatus} />}
     </div>
   );
 }

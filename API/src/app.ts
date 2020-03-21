@@ -1,9 +1,7 @@
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
-import sha1 from 'sha1';
-// import * as tools from "./utils/tools";
 import * as db from './service/db-service';
-import { JWT_SECRET, USER, SECRET } from './constants';
+import { JWT_SECRET } from './constants';
 import { app, passp as pass } from './config/router-config';
 
 dotenv.config();
@@ -30,7 +28,10 @@ app.get('/diagnostic', function(req, res) {
   res.status(200).send('ul-timezones');
 });
 
-app.post('/timezones', pass.authenticate('jwt'), async function(req, res) {
+app.post('/searchTimezones', pass.authenticate('jwt'), async function(
+  req,
+  res
+) {
   try {
     const result = await db.searchTimezone(req.query.searchString);
     res.status(200).send(result);
@@ -38,5 +39,3 @@ app.post('/timezones', pass.authenticate('jwt'), async function(req, res) {
     res.status(500).send(`Error searching timezones: ${e.message}`);
   }
 });
-
-console.log('hod3rrddddee');

@@ -1,25 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { authenticateUser } from "../lib/auth";
+import useSignUpForm from "../custom-hooks/useSignUpForm";
 import { Lock, Person } from "@material-ui/icons";
 
 type ILoginProps = {
   setLoggedIn: (isLoggedIn: boolean) => void;
+  setStatus: (status: string) => void;
 };
 
-function Login({ setLoggedIn }: ILoginProps) {
+function Login({ setLoggedIn, setStatus }: ILoginProps) {
   useEffect(() => {});
+  const { inputs, handleInputChange, handleSubmit } = useSignUpForm(
+    authenticateUser,
+    setStatus,
+    setLoggedIn
+  );
+
   return (
     <div id="login-container">
       <div className="login-item">
-        <form onSubmit={e => console.log(e)} className="form form-login">
+        <form onSubmit={handleSubmit} className="form form-login">
           <div className="form-field">
             <Person />
             <span className="hidden">Username</span>
             <input
               id="login-username"
               type="text"
+              name="username"
               className="form-input"
               placeholder="Username"
               required
+              value={inputs.username}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -28,15 +40,18 @@ function Login({ setLoggedIn }: ILoginProps) {
             <span className="hidden">Password</span>
             <input
               id="login-password"
+              name="password"
               type="password"
               className="form-input"
               placeholder="Password"
               required
+              value={inputs.password}
+              onChange={handleInputChange}
             />
           </div>
 
           <div className="form-field">
-            <input type="submit" value="Log in" />
+            <button type="submit">Log In</button>
           </div>
         </form>
       </div>
@@ -45,8 +60,3 @@ function Login({ setLoggedIn }: ILoginProps) {
 }
 
 export default Login;
-
-// <div id="login-container">
-// <input className="login-input" placeholder="login"></input>
-// <input className="login-input" placeholder="password"></input>
-// </div>

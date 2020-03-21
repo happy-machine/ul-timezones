@@ -18,6 +18,6 @@ exports.up = function(knex) {
 exports.down = function(knex) {
   return Promise.all([
     knex.schema.dropTableIfExists('timezones'),
-    knex.schema.dropTableIfExists('userss'),
+    knex.schema.dropTableIfExists('users'),
   ]);
 };
