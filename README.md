@@ -22,4 +22,5 @@ Before execution setup .env's in both folders copying the.example-env layouts to
 - **Rollback migrations** - *npm run rollback*
 - **Run test migrations** - *npm run test-migrate*
 - **Rollback test migrations** - *npm run test-rollback*
+- **Line** - *npm run lint*
 
