@@ -3,7 +3,7 @@
 
 API and UI for:\
 **Univers labs Timezone exercise** 
-<br></br>
+<br/>
 ### Installing the API
 **Install dependencies** - inside the folder ./API *npm install*
 
@@ -14,7 +14,7 @@ API and UI for:\
 First make .env files in both folders. Copy the .example-env contents into the new .env files.
 *make sure* that the port number in ./client/.env REACT_APP_API_PATH is the same as that in ./API/.env SERVER_PORT.
 
-
+<br/>
 Seed the database and test the app:
 
 - *npm run migrate*
