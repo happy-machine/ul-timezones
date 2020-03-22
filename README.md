@@ -25,3 +25,11 @@ Before execution, make .env files in both folders. Copy the .example-env to set 
 - **Rollback test migrations** - *npm run test-rollback*
 - **Lint** - *npm run lint*
 
+To seed the database and test the app:
+
+- *npm run migrate*
+- *knex seed:run --knexfile=./CLI/knexfile.js*
+
+The seeds in ./CLI will insert a user with a sha encoded key into the mySQL db.
+To test the app with this user, use the value for secret from the .env-example SECRET ("MYSECRETSTRING"). The seeded user will correspond to username: root and password: "some_hash" in the UI's login form.
+
