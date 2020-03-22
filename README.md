@@ -11,7 +11,7 @@ API and UI for:\
 **Install dependencies** - inside the folder ./clent *yarn install*
 
 <br></br>
-Setup:
+### Setup:
 First make .env files in both folders. Copy the .example-env contents into the new .env files.
 *make sure* that the port number in ./client/.env REACT_APP_API_PATH is the same as that in ./API/.env SERVER_PORT.  
 
@@ -22,11 +22,10 @@ Seed the database and test the app:
 
 The seeds in ./CLI will insert a seed user with a sha encoded key into the mySQL db.
 To test the app with this user, use the example value for SECRET ("MYSECRETSTRING") in your new ./API/.env. The seeded user can login using username: root and password: "some_hash" in the UI's login form.
-<br></br>
 
 **Build and start the API** - *npm run dev* or *npm run watch* (hot reloading)  
 **Build and start the UI** - *yarn start* 
-
+<br></br>
 ### Other API Commands
 
 - **Build and run tests** - *npm run test*
