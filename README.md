@@ -1,5 +1,5 @@
 # ul-timezones
-![Screnshot](https://i.imgur.com/tD2c4Ri.png)
+![Screnshot](https://i.imgur.com/mWQfDRj.png)
 
 API and UI for:\
 **Univers labs Timezone exercise** 
