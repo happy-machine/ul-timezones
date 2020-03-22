@@ -10,10 +10,10 @@ API and UI for:\
 ### Installing the UI
 **Install dependencies** - inside the folder ./clent *yarn install*
 
+
 Before execution setup .env's in both folders copying the.example-env layouts to set ports, passwords and mySQL credentials and table names.
 
 **Build and start the API** - *npm run dev* or *npm run watch* (hot reloading)  
-
 **Build and start the UI** - *yarn start* 
 
 ### Other API Commands
