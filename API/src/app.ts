@@ -1,8 +1,8 @@
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
-import * as db from './service/db-service';
-import { JWT_SECRET } from './constants';
+import { searchTimezone} from './service/db-service';;
 import { app, passp as pass } from './config/router-config';
+import { JWT_SECRET } from './constants'
 
 dotenv.config();
 
@@ -33,7 +33,7 @@ app.post('/searchTimezones', pass.authenticate('jwt'), async function (
   res
 ) {
   try {
-    const result = await db.searchTimezone(req.query.searchString);
+    const result = await searchTimezone(req.query.searchString);
     res.status(200).send(result);
   } catch (e) {
     res.status(500).send(`Error searching timezones: ${e.message}`);
