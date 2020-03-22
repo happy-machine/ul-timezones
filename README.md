@@ -3,7 +3,7 @@
 
 API and UI for:\
 **Univers labs Timezone exercise** 
-
+<br></br>
 ### Installing the API
 **Install dependencies** - inside the folder ./API *npm install*
 
