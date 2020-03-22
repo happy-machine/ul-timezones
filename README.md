@@ -9,7 +9,6 @@ API and UI for:\
 
 ### Installing the UI
 **Install dependencies** - inside the folder ./clent *yarn install*
-
 <br></br>
 ### Setup:
 First make .env files in both folders. Copy the .example-env contents into the new .env files.
