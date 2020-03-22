@@ -18,7 +18,7 @@ API/.env
 client/.env
 API/.prettierrc
 client/.prettierrc
-API/.vscode/
+API/.vscode
 
 client/yarn-debug.log*
 client/yarn-error.log*
