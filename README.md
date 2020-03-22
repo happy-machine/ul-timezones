@@ -10,6 +10,7 @@ API and UI for:\
 ### Installing the UI
 **Install dependencies** - inside the folder ./clent *yarn install*
 
+
 ### Setup:
 First make .env files in both folders. Copy the .example-env contents into the new .env files.
 *make sure* that the port number in ./client/.env REACT_APP_API_PATH is the same as that in ./API/.env SERVER_PORT.  
