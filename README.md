@@ -4,9 +4,12 @@
 API and UI for:\
 **Univers labs Timezone exercise** 
 <br></br>
-### Installing the API and UI dependencies
-*./API *npm install* && ./clent *yarn install*
-<br></br>
+### Installing the API
+**Install dependencies** - inside the folder ./API *npm install*
+
+### Installing the UI
+**Install dependencies** - inside the folder ./clent *yarn install*
+
 ### Setup:
 First make .env files in both folders. Copy the .example-env contents into the new .env files.
 *make sure* that the port number in ./client/.env REACT_APP_API_PATH is the same as that in ./API/.env SERVER_PORT.  
