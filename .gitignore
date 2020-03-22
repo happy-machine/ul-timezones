@@ -19,8 +19,7 @@ client/.env
 API/.prettierrc
 client/.prettierrc
 
-
+client/yarn-debug.log*
+client/yarn-error.log*
 API/npm-debug.log*
-API/yarn-debug.log*
-API/yarn-error.log*
-client/npm-debug.log*
+API/npm-debug.log*

@@ -13,7 +13,7 @@ import { userLogin, userVerify } from '../lib/auth';
 dotenv.config();
 export const app = express();
 
-var allowCrossDomain = function(req, res, next) {
+var allowCrossDomain = function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
     'Access-Control-Allow-Methods',

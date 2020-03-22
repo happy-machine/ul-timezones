@@ -3,7 +3,6 @@ import {
   convertCurrentToTimezone,
   getReadableTime
 } from "../lib/timeFunctions";
-import useWindowDimensions from "../custom-hooks/useWindowDimensions";
 import Clock from "react-clock";
 
 type ITZClockProps = {
@@ -15,23 +14,17 @@ type ITZClockProps = {
 };
 
 function TZClock({
-  hourOffset,
-  minuteOffset,
+  hourOffset = 0,
+  minuteOffset = 0,
   timezone,
   className,
-  size = 0
+  size = 80
 }: ITZClockProps) {
   const [time, setTime] = useState(new Date());
-  const { height, width } = useWindowDimensions();
-
-  // Theres a better way to do this, but not in the time i have
-  const calcSize = Math.round((height * width) / 25000) + 40;
 
   useEffect(() => {
     const id = setInterval(() => {
-      setTime(
-        new Date(convertCurrentToTimezone(hourOffset || 0, minuteOffset || 0))
-      );
+      setTime(new Date(convertCurrentToTimezone(hourOffset, minuteOffset)));
     }, 1000);
     return () => clearInterval(id);
   }, [hourOffset, minuteOffset]);
@@ -43,7 +36,7 @@ function TZClock({
         renderMinuteMarks={false}
         renderHourMarks={false}
         value={time}
-        size={size || calcSize}
+        size={size}
       />
     </div>
   );

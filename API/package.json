@@ -5,6 +5,12 @@
   "main": "./dist/app.js",
   "author": "",
   "license": "ISC",
+  "eslintIgnore": [
+    "/dist",
+    "/node_modules",
+    "/coverage",
+    "/CLI"
+  ],
   "scripts": {
     "clean": "rm -rf build && mkdir build",
     "build": "tsc",
@@ -18,7 +24,8 @@
     "dev": "npm run build && npm run start",
     "test": "npm run build && nyc mocha $(find dist -name '*_spec.js') --timeout 6000 --exit && nyc report --reporter=html",
     "test-one": "mocha $(find dist -name '*_spec.js')",
-    "test-ci": "npm run build-ci && nyc mocha $(find dist -name '*_spec.js') --timeout 6000 --exit  && nyc report --reporter=html"
+    "test-ci": "npm run build-ci && nyc mocha $(find dist -name '*_spec.js') --timeout 6000 --exit  && nyc report --reporter=html",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "@types/node": "^13.9.2",
@@ -34,19 +41,25 @@
     "passport": "^0.4.1",
     "passport-http": "^0.3.0",
     "passport-http-bearer": "^1.0.1",
-    "sha1": "^1.1.1"
+    "sha1": "^1.1.1",
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
     "@types/chai": "^4.2.11",
     "@types/knex": "^0.16.1",
     "@types/mocha": "^7.0.2",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
     "mocha": "^7.1.1",
     "nodemon": "^2.0.2",
     "nyc": "^15.0.0",
-    "prettier": "^1.19.1"
+    "prettier": "^2.0.1"
   },
   "engines": {
     "node": "12.16.1"

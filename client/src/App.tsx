@@ -28,15 +28,17 @@ function App() {
       {!LoggedIn && <div id="logged-out" />}
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <div id="logout" onClick={handleLogout}>
-          Logout
+        <div id="clock-logout-container">
+          <div id="logout" onClick={handleLogout}>
+            Logout
+          </div>
+          <TZClock
+            className="header-clock"
+            hourOffset={timezone.hourOffset}
+            minuteOffset={timezone.minuteOffset}
+            timezone={timezone.timezone}
+          />
         </div>
-        <TZClock
-          className="header-clock"
-          hourOffset={timezone.hourOffset}
-          minuteOffset={timezone.minuteOffset}
-          timezone={timezone.timezone}
-        />
       </header>
 
       <div id="status">{status}</div>

@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import { searchTimezones } from "../lib/requests";
 import TZClock from "./TZClock";
 import ScaleLoader from "react-spinners/ClipLoader";
@@ -36,33 +36,37 @@ function Search({
 
   const makeList = useCallback(() => {
     const handleSelectTimezone = (result: IResultProps) => {
+      const { hours, minutes, name } = result;
       setTimezone({
-        hourOffset: result.hours,
-        minuteOffset: result.minutes,
-        timezone: result.name.split(" UTC")[0]
+        hourOffset: hours,
+        minuteOffset: minutes,
+        timezone: name.split(" UTC")[0]
       });
       setResults([]);
       setSearchString("");
       setStatus("Master time updated.");
     };
 
-    return results.map((result: IResultProps) => (
-      <div
-        className="search-result"
-        onClick={() => handleSelectTimezone(result)}
-        key={result.id}
-      >
-        <div className="search-result-name">{result.name}</div>
-        <div className="clock-container">
-          <TZClock
-            className="search-result-clock"
-            hourOffset={result.hours}
-            minuteOffset={result.minutes}
-            size={40}
-          />
+    return results.map((result: IResultProps) => {
+      const { name, hours, minutes } = result;
+      return (
+        <div
+          className="search-result"
+          onClick={() => handleSelectTimezone(result)}
+          key={result.id}
+        >
+          <div className="search-result-name">{name}</div>
+          <div className="clock-container">
+            <TZClock
+              className="search-result-clock"
+              hourOffset={hours}
+              minuteOffset={minutes}
+              size={40}
+            />
+          </div>
         </div>
-      </div>
-    ));
+      );
+    });
   }, [results, setTimezone, setSearchString, setStatus]);
 
   const handleInput = useCallback(

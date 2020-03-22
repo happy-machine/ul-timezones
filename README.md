@@ -6,14 +6,13 @@ API and UI for:\
 ### Installing the API
 **Install dependencies** - inside the folder ./API *npm install*
 
-**Build and start the API** - *npm run dev-api* or *nodemon dev-api* (for hot reloading)
+### Installing the UI
+**Install dependencies** - inside the folder ./clent *yarn install*
 
-Before execution setup .env's in both folders copying the example .example-env layouts to set ports, passwords and mysql database table names and credentials
+Before execution setup .env's in both folders copying the.example-env layouts to set ports, passwords and mySQL credentials and table names.
 
-### Installing the UI tools
-
-- **Install dependencies** - inside the folder client *npm install*
-- **Build and run the UI** - inside the folder client *npm run client*
+**Build and start the API** - *npm run dev* or *npm run watch* (hot reloading)
+**Build and start the UI** - *yarn start* 
 
 ### Other API Commands
 

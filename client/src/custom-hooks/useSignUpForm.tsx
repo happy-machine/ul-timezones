@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 export type ISignUpFormInput = {
   password?: string;
   username?: string;
@@ -7,12 +8,14 @@ export type ICallback = {
   message: string;
   success: boolean;
 };
+
 const useSignUpForm = (
   callback: (args: ISignUpFormInput) => Promise<ICallback>,
   setStatus: (status: string) => void,
   setLoggedIn: (loggedIn: boolean) => void
 ) => {
   const [inputs, setInputs] = useState({ password: "", username: "" });
+
   const handleSubmit = async (event: React.ChangeEvent<EventTarget>) => {
     if (event) {
       event.preventDefault();

@@ -6,11 +6,12 @@ import { app, passp as pass } from './config/router-config';
 
 dotenv.config();
 
-app.post('/login', pass.authenticate('basic', { session: true }), function(
+app.post('/login', pass.authenticate('basic', { session: true }), function (
   req,
   res
 ) {
   if (req.user) {
+    // eslint-disable-next-line no-unused-vars
     const { password, ...tokenData } = req.user;
     res.send({
       status: 'success',
@@ -23,11 +24,11 @@ app.post('/login', pass.authenticate('basic', { session: true }), function(
   }
 });
 
-app.get('/diagnostic', function(req, res) {
+app.get('/diagnostic', function (req, res) {
   res.status(200).send('ul-timezones');
 });
 
-app.post('/searchTimezones', pass.authenticate('jwt'), async function(
+app.post('/searchTimezones', pass.authenticate('jwt'), async function (
   req,
   res
 ) {

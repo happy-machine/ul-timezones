@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { authenticateUser } from "../lib/auth";
 import useSignUpForm from "../custom-hooks/useSignUpForm";
 import { Lock, Person } from "@material-ui/icons";
@@ -9,12 +9,12 @@ type ILoginProps = {
 };
 
 function Login({ setLoggedIn, setStatus }: ILoginProps) {
-  useEffect(() => {});
   const { inputs, handleInputChange, handleSubmit } = useSignUpForm(
     authenticateUser,
     setStatus,
     setLoggedIn
   );
+  const { username, password } = inputs;
 
   return (
     <div id="login-container">
@@ -30,7 +30,7 @@ function Login({ setLoggedIn, setStatus }: ILoginProps) {
               className="form-input"
               placeholder="Username"
               required
-              value={inputs.username}
+              value={username}
               onChange={handleInputChange}
             />
           </div>
@@ -45,7 +45,7 @@ function Login({ setLoggedIn, setStatus }: ILoginProps) {
               className="form-input"
               placeholder="Password"
               required
-              value={inputs.password}
+              value={password}
               onChange={handleInputChange}
             />
           </div>

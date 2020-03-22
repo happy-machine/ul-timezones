@@ -1,14 +1,14 @@
 export const convertCurrentToTimezone = (
   hourOffset: number,
-  minuteOffSet: number
+  minuteOffset: number
 ) => {
   const currentDate = new Date();
   const localTime = currentDate.getTime();
   const localOffset = currentDate.getTimezoneOffset() * 60000;
   const utc = localTime + localOffset;
-  const hourOffSetSeconds = 3600000 * hourOffset;
-  const minuteOffSetSeconds = minuteOffSet * 60000;
-  return utc + hourOffSetSeconds + minuteOffSetSeconds;
+  const hourOffsetSeconds = 3600000 * hourOffset;
+  const minuteOffsetSeconds = minuteOffset * 60000;
+  return utc + hourOffsetSeconds + minuteOffsetSeconds;
 };
 
 export const getReadableTime = (time: Date) => {

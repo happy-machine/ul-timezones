@@ -13,34 +13,40 @@ code {
     monospace;
 }
 
-.App-logo {
-  height: 2.3em;
-  pointer-events: none;
-  margin-left: 4%;
-  align-self: center;
-  padding-top: 5px;
-}
-
 .App-header {
   padding-top: 4%;
   font-size: calc(10px + 2vmin);
-  grid-template-columns: 80% 10% 0%;
-  display: grid;
+  justify-content: space-between;
+  display: inline-flex;
+  width: 100%;
   color: white;
-  #logout {
-    font-family: "neuzeit-grotesk", sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    color: #888;
+  .App-logo {
+    height: 2.3em;
+    pointer-events: none;
     align-self: center;
-    &:hover {
-      color: #bbb;
-      cursor: grab;
-    }
+    padding-top: 5px;
+    margin-left: 20px;
   }
-  .header-clock {
-    background-color: white;
-    border-radius: 50%;
+  #clock-logout-container {
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+    #logout {
+      font-family: "neuzeit-grotesk", sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      color: #888;
+      align-self: center;
+      margin-right: 5vw;
+      &:hover {
+        color: #bbb;
+        cursor: grab;
+      }
+    }
+    .header-clock {
+      background-color: white;
+      border-radius: 50%;
+    }
   }
 }
 
@@ -64,37 +70,4 @@ code {
 #container {
   display: flex;
   justify-content: center;
-}
-
-@media screen and (max-width: 780px) {
-  .header-clock {
-    height: 5vh;
-    width: 5vh;
-  }
-  .App-header {
-    grid-template-columns: 65% 19% 0%;
-  }
-  .App-logo {
-    height: 2.7em;
-  }
-  #search-input {
-    width: 50%;
-  }
-  .App-logo {
-    padding-top: 5px;
-  }
-}
-
-@media screen and (max-width: 360px) {
-  .App-header {
-    grid-template-columns: 60% 18% 0%;
-    #logout {
-      font-size: 11px;
-    }
-  }
-  #container {
-    #search-container {
-      width: 80%;
-    }
-  }
 }
