@@ -10,7 +10,7 @@ API and UI for:\
 ### Installing the UI
 **Install dependencies** - inside the folder ./clent *yarn install*
 
-<br></br>
+<br>
 Before execution, make .env files in both folders. Copy the .example-env contents into the new .env files.
 
 Seed the database and test the app:
@@ -20,7 +20,9 @@ Seed the database and test the app:
 
 The seeds in ./CLI will insert a seed user with a sha encoded key into the mySQL db.
 To test the app with this user, use the example value for SECRET ("MYSECRETSTRING"). The seeded user can login using username: root and password: "some_hash" in the UI's login form.
-<br></br>
+
+<br>
+
 **Build and start the API** - *npm run dev* or *npm run watch* (hot reloading)  
 **Build and start the UI** - *yarn start* 
 
