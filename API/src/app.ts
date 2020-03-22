@@ -6,6 +6,10 @@ import { app, passp as pass } from './config/router-config';
 
 dotenv.config();
 
+app.get('/diagnostic', function (req, res) {
+  res.status(200).send('ul-timezones');
+});
+
 app.post('/login', pass.authenticate('basic', { session: true }), function (
   req,
   res
@@ -22,10 +26,6 @@ app.post('/login', pass.authenticate('basic', { session: true }), function (
   } else {
     res.status(403).send({ message: 'Not authorized' });
   }
-});
-
-app.get('/diagnostic', function (req, res) {
-  res.status(200).send('ul-timezones');
 });
 
 app.post('/searchTimezones', pass.authenticate('jwt'), async function (
