@@ -1,7 +1,4 @@
 # timezones
-
-API and UI for:\
-**Timezone exercise** 
 Full stack app to parse timezones and render realtime drag and drog clocks
 <br></br>
 ### Installing the API
