@@ -1,8 +1,8 @@
-# ul-timezones
+# timezones
 ![Screnshot](https://i.imgur.com/mWQfDRj.png)
 
 API and UI for:\
-**Univers labs Timezone exercise** 
+**Timezone exercise** 
 <br></br>
 ### Installing the API
 **Install dependencies** - inside the folder ./API *npm install*
