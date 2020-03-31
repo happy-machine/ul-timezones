@@ -1,8 +1,8 @@
 # timezones
-![Screnshot](https://i.imgur.com/mWQfDRj.png)
 
 API and UI for:\
 **Timezone exercise** 
+Full stack app to parse timezones and render realtime drag and drog clocks
 <br></br>
 ### Installing the API
 **Install dependencies** - inside the folder ./API *npm install*
