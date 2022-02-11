@@ -1,5 +1,5 @@
 # timezones
-Full stack app to parse timezones and render realtime drag and drog clocks
+Full stack app to parse timezones and render realtime drag and drop clocks
 <br></br>
 ### Installing the API
 **Install dependencies** - inside the folder ./API *npm install*
